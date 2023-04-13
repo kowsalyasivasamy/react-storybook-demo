@@ -43,11 +43,11 @@ Card.propTypes = {
 
 Card.defaultProps = {
   width: "18rem",
-  height: "10rem",
-  bgcolor: "white",
-  bordercolor: "black",
-  borderRadius: "10px",
-  textcolor: "grey",
+  height: "13rem",
+  bgColor: 'level0',
+  borderColor: 'level1',
+  borderRadius: '10px',
+  textColor: 'primary'
 };
 
 export default Card;
