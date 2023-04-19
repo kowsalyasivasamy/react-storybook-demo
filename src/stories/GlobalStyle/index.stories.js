@@ -14,5 +14,3 @@ const component = {
 }
 
 export default component
-
-export const Default = Template.bind({})

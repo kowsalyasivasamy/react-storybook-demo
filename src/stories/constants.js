@@ -83,3 +83,29 @@ export const THEMES_INPUTS = {
     textColor: COLORS.warning
   }
 }
+
+export const SIZES_MODAL = {
+  xs: {
+    width: 360
+  },
+  sm: {
+    width: 420
+  },
+  md: {
+    width: 540
+  },
+  lg: {
+    width: 648
+  },
+  xl: {
+    width: 724
+  }
+}
+
+export const MEDIA_QUERY = {
+  xs: '320px',
+  sm: '576px',
+  md: '768px',
+  lg: '992px',
+  xl: '1200px'
+}

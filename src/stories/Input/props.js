@@ -1,9 +1,4 @@
 const props = {
-  defaultProps: {
-    theme: 'default',
-    size: 'sm',
-    name: 'firstName'
-  },
   roundedInputProps: {
     theme: 'success',
     size: 'md',

@@ -54,9 +54,6 @@ export default component
 const Template = ({ ...args }) => <Input {...args} />
 
 export const Default = Template.bind({})
-Default.args = {
-  ...props.defaultProps
-}
 
 export const InputRounded = Template.bind({})
 InputRounded.args = {

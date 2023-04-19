@@ -37,10 +37,10 @@ Input.displayName = 'Input'
 
 Input.defaultProps = {
   theme: 'default',
-  size: 'md',
+  size: 'sm',
   rounded: false,
   type: 'text',
-  name: 'text',
+  name: 'firstName',
   disabled: false
 }
 

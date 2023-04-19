@@ -11,6 +11,7 @@ const CardContainer = styled(CardReact)`
     background-color: ${props => props.bg};
     border: 1px solid ${props => props.border};
     border-radius: ${props => props.borderradius};
+    box-shadow: var(--shadow);
   }
 `;
 
