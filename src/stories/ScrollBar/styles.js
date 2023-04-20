@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components'
+import styled, { css } from "styled-components";
 
 export const styleScrollbar = css`
   /* width */
@@ -17,7 +17,7 @@ export const styleScrollbar = css`
   /* handle */
   &::-webkit-scrollbar-thumb {
     border-radius: 10px;
-    background: black;
+    background: var(--secondary);
   }
 
   /* hover */
@@ -37,10 +37,10 @@ export const styleScrollbar = css`
   /* active */
   &:active {
     &::-webkit-scrollbar-track {
-      border: 1px solid black;
+      border: 1px solid var(--secondary);
     }
   }
-`
+`;
 
 const ScrollBarContainer = styled.div`
   width: 100%;
@@ -49,6 +49,6 @@ const ScrollBarContainer = styled.div`
   overflow-x: hidden;
 
   ${styleScrollbar}
-`
+`;
 
-export default ScrollBarContainer
+export default ScrollBarContainer;

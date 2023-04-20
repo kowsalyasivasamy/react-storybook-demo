@@ -1,33 +1,33 @@
-import React from 'react'
-import PropTypes from 'prop-types'
+import React from "react";
+import PropTypes from "prop-types";
 
-import Container from './styles'
+import Container from "./styles";
 
 const ScrollBar = ({ height, ...props }) => {
   const args = {
-    ...props
-  }
+    ...props,
+  };
 
-  delete args.children
+  delete args.children;
 
   return (
     <Container height={height} {...args}>
       {props.children}
     </Container>
-  )
-}
+  );
+};
 
 ScrollBar.propTypes = {
   height: PropTypes.number.isRequired,
   children: PropTypes.oneOfType([
     PropTypes.any,
     PropTypes.object,
-    PropTypes.arrayOf(PropTypes.object)
-  ])
-}
+    PropTypes.arrayOf(PropTypes.object),
+  ]),
+};
 
 ScrollBar.defaultProps = {
-  height: 400
-}
+  height: 400,
+};
 
-export default ScrollBar
+export default ScrollBar;

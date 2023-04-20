@@ -1,71 +1,70 @@
-import React from 'react'
+import React from "react";
 
-import Input from './index'
-import props from './props'
-import { SIZES_INPUTS, THEMES_INPUTS } from '../constants'
+import Input from "./index";
+import props from "./props";
+import { SIZES_INPUTS, THEMES_INPUTS } from "../constants";
 
 const component = {
-  title: 'Input',
+  title: "Input",
   component: Input,
   tags: ["autodocs"],
   argTypes: {
     size: {
-      control: 'select',
+      control: "select",
       options: Object.keys(SIZES_INPUTS),
-      name: 'size',
-      defaultValue: 'md'
+      name: "size",
+      defaultValue: "md",
     },
     theme: {
-      control: 'select',
+      control: "select",
       options: Object.keys(THEMES_INPUTS),
-      name: 'Theme',
-      defaultValue: 'default'
+      name: "Theme",
+      defaultValue: "default",
     },
     rounded: {
-      control: 'boolean',
-      name: 'rounded',
-      description: 'When Rounded is true, border-radius will be 30px else 6px',
-      defaultValue: false
+      control: "boolean",
+      name: "rounded",
+      description: "When Rounded is true, border-radius will be 30px else 6px",
+      defaultValue: false,
     },
     type: {
-      control: 'text',
-      name: 'type',
-      description: 'Type of Input',
-      defaultValue: 'text'
+      control: "text",
+      name: "type",
+      description: "Type of Input",
+      defaultValue: "text",
     },
     name: {
-      control: 'text',
-      name: 'name',
-      description: 'Name of the Input (name used for forms)',
-      defaultValue: 'text'
+      control: "text",
+      name: "name",
+      description: "Name of the Input (name used for forms)",
+      defaultValue: "text",
     },
     disabled: {
-      control: 'boolean',
-      name: 'disabled',
-      description: 'To disable the input',
-      defaultValue: false
-    }
-  }
-}
+      control: "boolean",
+      name: "disabled",
+      description: "To disable the input",
+      defaultValue: false,
+    },
+  },
+};
 
-export default component
+export default component;
 
+const Template = ({ ...args }) => <Input {...args} />;
 
-const Template = ({ ...args }) => <Input {...args} />
+export const Default = Template.bind({});
 
-export const Default = Template.bind({})
-
-export const InputRounded = Template.bind({})
+export const InputRounded = Template.bind({});
 InputRounded.args = {
-  ...props.roundedInputProps
-}
+  ...props.roundedInputProps,
+};
 
-export const InputNumber = Template.bind({})
+export const InputNumber = Template.bind({});
 InputNumber.args = {
-  ...props.inputNumberProps
-}
+  ...props.inputNumberProps,
+};
 
-export const InputPassword = Template.bind({})
+export const InputPassword = Template.bind({});
 InputPassword.args = {
-  ...props.inputPasswordProps
-}
+  ...props.inputPasswordProps,
+};

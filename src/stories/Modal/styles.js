@@ -1,23 +1,26 @@
-import styled from 'styled-components'
-import ModalReact from 'react-bootstrap/Modal'
+import styled from "styled-components";
+import ModalReact from "react-bootstrap/Modal";
 
-const SIZES_SMALL = ['xs', 'sm']
+const SIZES_SMALL = ["xs", "sm"];
 
 const ModalContainer = styled(ModalReact)`
   padding: 0 !important;
 
   .modal {
-    &-content{
+    &-content {
       background-color: var(--level0);
     }
-    &-dialog{
-      max-width: ${props => `${props.width}px`};
+    &-dialog {
+      max-width: ${(props) => `${props.width}px`};
       margin: auto !important;
+      box-shadow: 1px 1px 4px !important;
+      border-radius: 20px;
     }
     &-header {
       height: 86px;
       border-bottom-color: var(--lines_disabled);
-      border-bottom-width: ${props => props['border-header'] === 'true' ? '1px' : '0'};
+      border-bottom-width: ${(props) =>
+        props["border-header"] === "true" ? "1px" : "0"};
 
       &.header-without-title {
         height: 40px;
@@ -35,16 +38,12 @@ const ModalContainer = styled(ModalReact)`
           box-shadow: none;
         }
 
-        &:focus-visible {
-          outline: none;
-        }
-
         &:hover {
           opacity: 0.5;
         }
-        
+
         &::after {
-          content: url(${(props) => props['icon-close']});
+          content: url(${(props) => props["icon-close"]});
           width: 18px;
           height: 18px;
           position: relative;
@@ -69,6 +68,7 @@ const ModalContainer = styled(ModalReact)`
 
     &-content {
       border-radius: 20px;
+      padding: 8px;
     }
 
     &-footer {
@@ -76,16 +76,19 @@ const ModalContainer = styled(ModalReact)`
       display: flex;
       align-items: center;
       justify-content: center;
-      flex-direction: ${props => SIZES_SMALL.includes(props.size) ? 'column' : 'row'};
+      flex-direction: ${(props) =>
+        SIZES_SMALL.includes(props.size) ? "column" : "row"};
       flex-wrap: initial;
       border-top: none;
 
       > * {
-        flex: 0 0 ${props => SIZES_SMALL.includes(props.size) ? '100%' : 'initial'};
-        max-width: ${props => SIZES_SMALL.includes(props.size) ? '100%' : 'initial'};
+        flex: 0 0
+          ${(props) => (SIZES_SMALL.includes(props.size) ? "100%" : "initial")};
+        max-width: ${(props) =>
+          SIZES_SMALL.includes(props.size) ? "100%" : "initial"};
       }
     }
   }
-`
+`;
 
-export default ModalContainer
+export default ModalContainer;

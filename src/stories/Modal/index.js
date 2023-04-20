@@ -1,13 +1,13 @@
-import React, { useState, useEffect, memo } from 'react'
-import PropTypes from 'prop-types'
-import { useMediaQuery } from 'react-responsive'
+import React, { useState, useEffect, memo } from "react";
+import PropTypes from "prop-types";
+import { useMediaQuery } from "react-responsive";
 
-import { getThemeMode, svg2Raw, truncate } from '../common'
-import { SIZES_MODAL, MEDIA_QUERY, THEMES_MODE } from '../constants'
+import { getThemeMode, svg2Raw, truncate } from "../common";
+import { SIZES_MODAL, MEDIA_QUERY, THEMES_MODE } from "../constants";
 
-import iconClose from './assets/icon-close-modal.svgl'
-import iconCloseDarkMode from './assets/icon-close-modal-dark-mode.svgl'
-import ModalReact from './styles'
+import iconClose from "./assets/icon-close-modal.svgl";
+import iconCloseDarkMode from "./assets/icon-close-modal-dark-mode.svgl";
+import ModalReact from "./styles";
 
 export const Modal = ({
   title,
@@ -19,59 +19,71 @@ export const Modal = ({
   centered,
   ...props
 }) => {
-  const [showModal, setShowModal] = useState(false)
-  const isSmallScreen = useMediaQuery({ query: `(max-width: ${MEDIA_QUERY.lg})` })
-  const isXSmallScreen = useMediaQuery({ query: `(max-width: ${MEDIA_QUERY.xs})` })
+  const [showModal, setShowModal] = useState(false);
+  const isSmallScreen = useMediaQuery({
+    query: `(max-width: ${MEDIA_QUERY.lg})`,
+  });
+  const isXSmallScreen = useMediaQuery({
+    query: `(max-width: ${MEDIA_QUERY.xs})`,
+  });
 
   useEffect(() => {
-    setShowModal(show)
-  }, [show])
+    setShowModal(show);
+  }, [show]);
 
   const handleClose = () => {
-    if (typeof onHide === 'function') {
-      onHide()
+    if (typeof onHide === "function") {
+      onHide();
     }
 
-    setShowModal(false)
+    setShowModal(false);
 
-    show = false
-  }
+    show = false;
+  };
 
   const args = {
-    'icon-close': getThemeMode() === THEMES_MODE.light ? svg2Raw(iconClose) : svg2Raw(iconCloseDarkMode),
-    'border-header': (!!title).toString(),
-    ...props
-  }
+    "icon-close":
+      getThemeMode() === THEMES_MODE.light
+        ? svg2Raw(iconClose)
+        : svg2Raw(iconCloseDarkMode),
+    "border-header": (!!title).toString(),
+    ...props,
+  };
 
   if (isSmallScreen) {
-    size = 'sm'
+    size = "sm";
   }
 
   if (isXSmallScreen) {
-    title = truncate(title, 15)
+    title = truncate(title, 15);
   }
 
   const css = {
-    ...SIZES_MODAL[`${size}`]
-  }
+    ...SIZES_MODAL[`${size}`],
+  };
 
-  delete args.children
+  delete args.children;
 
   return (
     <ModalReact
       size={size}
       show={showModal}
-      backdrop={!props.keyboard ? 'static' : true}
+      backdrop={!props.keyboard ? "static" : true}
       onHide={handleClose}
       centered={centered}
       {...css}
-      {...args}>
+      {...args}
+    >
       {(title || closeButton) && (
         <ModalReact.Header
-          className={!title ? 'header-without-title' : ''} aria-label="header-modal" closeButton={closeButton}
+          className={!title ? "header-without-title" : ""}
+          aria-label="header-modal"
+          closeButton={closeButton}
         >
           {title && (
-            <ModalReact.Title aria-label="title-modal">{title}</ModalReact.Title>
+            <ModalReact.Title aria-label="title-modal">
+              {title}
+            </ModalReact.Title>
           )}
         </ModalReact.Header>
       )}
@@ -84,14 +96,11 @@ export const Modal = ({
         </ModalReact.Footer>
       )}
     </ModalReact>
-  )
-}
+  );
+};
 
 Modal.propTypes = {
-  title: PropTypes.oneOfType([
-    PropTypes.any,
-    PropTypes.object
-  ]),
+  title: PropTypes.oneOfType([PropTypes.any, PropTypes.object]),
   footer: PropTypes.object,
   size: PropTypes.oneOf(Object.keys(SIZES_MODAL)),
   show: PropTypes.bool,
@@ -102,16 +111,16 @@ Modal.propTypes = {
   children: PropTypes.oneOfType([
     PropTypes.any,
     PropTypes.object,
-    PropTypes.arrayOf(PropTypes.object)
+    PropTypes.arrayOf(PropTypes.object),
   ]),
-}
+};
 
 Modal.defaultProps = {
   footer: null,
   closeButton: true,
   keyboard: false,
-  size: 'md',
-  centered: true
-}
+  size: "md",
+  centered: true,
+};
 
-export default memo(Modal)
+export default memo(Modal);
